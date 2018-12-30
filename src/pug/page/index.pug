@@ -9,24 +9,24 @@ prepend config-block
 
 block content-block
   // - page main
+  main
+    .carousel.js-carousel
+      each val in slidelist
+        .carousel-slide.js-slide
+          .slide-container.js-slidecontainer
+            .slide-img(style=`background-image:url("/img/slide${val.no}.jpg")`).js-slideimg
+          h1.slide-ttl(data-color=val.colorid)
+            p(class="js-slideno")="#0" + val.no
+            p(class="js-slidettl")=val.title
+      .carousel-prev
+        button.js-prev prev
+      .carousel-next
+        button.js-next next
   header
     h1.header-ttl 落花
       span -fall down flowers-
     .header-about
       button About
-  main
-    .carousel.js-carousel
-      each val in slidelist
-        .carousel-slide.js-slide
-          .slide-container
-            .slide-img(style=`background-image:url("/img/slide${val.no}.jpg")`)
-        h1.slide-ttl(data-color=val.colorid)
-          p="#0" + val.no
-          p=val.title
-      .carousel-prev
-        button prev
-      .carousel-next
-        button next
   footer
     small © 2018 MIO
   // - modal
