@@ -13,10 +13,12 @@ block content-block
     button.header-about About
   main
     .carousel.js-carousel
-      .slide.js-slide
-        .slide-container
-          .slide-img
-        h1.slide-ttl
+      each val in slidelist
+        .slide.js-slide
+          .slide-container
+            .slide-img(style=`background-image:"/img/slide${val.no}.jpg"`)
+          h2.slide-no="#0" + val.no
+          h1.slide-ttl=val.title
       button.carousel-prev previous
       button.carousel-next next
 
@@ -30,6 +32,11 @@ block content-block
         buttom.modal-close
         span
         span
-        
+    
+    .about
+      .about-container
+        h2.about-ttl About
+        p.about-txt This site is for illustration by MIO, which
+
   footer
-    small © 2018 Mio Tagami
+    small © 2018 MIO

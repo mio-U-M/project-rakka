@@ -1,0 +1,50 @@
+[
+    {
+        "no": 1,
+        "title": "Skyblue/",
+        "previewimg": "slide1.jpg",
+        "mainimg": "main1.jpg",
+        "instagramlink" : "",
+        "explain": ""
+    },
+    {
+        "no": 2,
+        "title": "Purple/",
+        "previewimg": "slide2.jpg",
+        "mainimg": "main2.jpg",
+        "instagramlink" : "",
+        "explain": ""
+    },
+    {
+        "no": 3,
+        "title": "Green/",
+        "previewimg": "slide3.jpg",
+        "mainimg": "main3.jpg",
+        "instagramlink" : "",
+        "explain": ""
+    },
+    {
+        "no": 4,
+        "title": "Red/",
+        "previewimg": "slide4.jpg",
+        "mainimg": "main4.jpg",
+        "instagramlink" : "",
+        "explain": ""
+    },
+    {
+        "no": 5,
+        "title": "Blue/",
+        "previewimg": "slide5.jpg",
+        "mainimg": "main5.jpg",
+        "instagramlink" : "",
+        "explain": ""
+    },
+    {
+        "no": 6,
+        "title": "Yellow/Suggestive",
+        "previewimg": "slide6.jpg",
+        "mainimg": "main6.jpg",
+        "instagramlink" : "",
+        "explain": ""
+    }
+]

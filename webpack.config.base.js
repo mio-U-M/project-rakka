@@ -40,7 +40,8 @@ const htmlTemplates = routeDataMapper({
         {},
         constants,
         {
-            meta: readConfig(`${SRC}/pug/meta.yml`)
+            meta: readConfig(`${SRC}/pug/meta.yml`),
+            slidelist: readConfig(`${SRC}/config/slidelist.json`),
         }
     )
 })
