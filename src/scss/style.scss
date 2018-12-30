@@ -1,16 +1,26 @@
 // reset css
 @import "../../node_modules/reset.css/reset.css";
 
-// SASS
+// constants
 @import "variable";
+
+//function・mixin
 @import "function";
 @import "mixin";
 
-// @keyframes
+// keyframes
 @import "keyframes";
 
 // base style
 @import "base";
 
+// common style
+@import "common";
+
 // modules
 @import "module/wrapper";
+@import "module/header";
+@import "module/carousel";
+@import "module/modal";
+@import "module/about";
+@import "module/footer";

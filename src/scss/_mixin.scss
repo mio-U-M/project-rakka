@@ -1,11 +1,30 @@
-@mixin pc-layout {
+@mixin pcLayout {
     @media (min-width: $pc_min_width) {
         @content;
     }
 }
-
-@mixin sp-layout {
+@mixin spLayout {
     @media (max-width: ($pc_min_width - 1)) {
         @content;
     }
+}
+@mixin absCenter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+@mixin formStyleReset {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    appearance: none;
+    overflow: visible;
 }

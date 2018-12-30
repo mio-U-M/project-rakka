@@ -8,10 +8,41 @@ prepend config-block
 //- append javascript-block
 
 block content-block
+  // - page main
   header
-    h1.header-ttl 落花 -fall down flowers-
-    button.header-about About
+    h1.header-ttl 落花
+      span -fall down flowers-
+    .header-about
+      button About
   main
-    .slideshow
-  fotter
-    small © 2018 Mio Tagami
+    .carousel.js-carousel
+      each val in slidelist
+        .carousel-slide.js-slide
+          .slide-container
+            .slide-img(style=`background-image:url("/img/slide${val.no}.jpg")`)
+        h1.slide-ttl(data-color=val.colorid)
+          p="#0" + val.no
+          p=val.title
+      .carousel-prev
+        button prev
+      .carousel-next
+        button next
+  footer
+    small © 2018 MIO
+  // - modal
+  .modal.js-modal
+    .modal-container
+      .modal-txtarea
+        p.modal-txt
+        a(href="#").modal-link
+      .modal-ttl
+      .modal-previewimg
+    buttom.modal-close
+    span
+    span
+  .about.js-about
+    .about-container
+      h2.about-ttl About
+      p.about-txt This site is for illustration by MIO, which
+  //- opening
+  .opening.js-opening
