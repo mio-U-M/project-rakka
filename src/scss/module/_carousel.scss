@@ -42,6 +42,11 @@ main {
     background-size: 100%;
     filter: grayscale(10);
     transition: filter 0.3s ease-out;
+
+    // sp
+    @include spLayout {
+        background-size: cover;
+    }
 }
 .slide-ttl {
     @include absCenter;
@@ -80,6 +85,18 @@ main {
             font-size: 80px;
         }
     }
+
+    // sp
+    @include spLayout {
+        p {
+            &:nth-of-type(1) {
+                font-size: 30px;
+            }
+            &:nth-of-type(2) {
+                font-size: 36px;
+            }
+        }
+    }
 }
 // carousel button
 .carousel-prev,
@@ -98,10 +115,24 @@ main {
         font-size: 18px;
         font-family: $font-main;
     }
+
+    @include spLayout {
+        top: 25%;
+
+        button {
+            text-shadow: 2px 2px 5px #ddd;
+        }
+    }
 }
 .carousel-prev {
     left: 30px;
+    @include spLayout {
+        left: 12px;
+    }
 }
 .carousel-next {
     right: 30px;
+    @include spLayout {
+        right: 12px;
+    }
 }
