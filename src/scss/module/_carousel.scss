@@ -1,0 +1,107 @@
+main {
+    width: 100%;
+    height: 100%;
+}
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.slide-container {
+    position: absolute;
+    top: $header-height;
+    right: 0;
+    left: 0;
+    width: 80%;
+    height: 60%;
+    margin: auto;
+    overflow: hidden;
+    &:hover {
+        .slide-img {
+            filter: none;
+            transition: filter 0.3s ease-out;
+        }
+        .slide-ttl {
+            color: $color-slidetxt;
+            transition: color 0.3s ease-out;
+        }
+    }
+}
+.slide-img {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    filter: grayscale(10);
+    transition: filter 0.3s ease-out;
+}
+.slide-ttl {
+    @include absCenter;
+    width: 80%;
+    height: 60%;
+    text-align: center;
+    text-shadow: 2px 2px 10px #838383;
+    transition: color 0.3s ease-out;
+
+    &[data-color="sb"] {
+        color: $color-skyblue;
+    }
+    &[data-color="pp"] {
+        color: $color-purple;
+    }
+    &[data-color="gr"] {
+        color: $color-green;
+    }
+    &[data-color="rd"] {
+        color: $color-red;
+    }
+    &[data-color="bl"] {
+        color: $color-blue;
+    }
+    &[data-color="yl"] {
+        color: $color-yellow;
+    }
+
+    p {
+        &:nth-of-type(1) {
+            margin: 30px auto 10px;
+            line-height: 1;
+            font-size: 40px;
+        }
+        &:nth-of-type(2) {
+            font-size: 80px;
+        }
+    }
+}
+// carousel button
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 50px;
+    height: 30px;
+
+    button {
+        @include formStyleReset;
+        width: 100%;
+        height: 100%;
+        font-size: 18px;
+        font-family: $font-main;
+    }
+}
+.carousel-prev {
+    left: 30px;
+}
+.carousel-next {
+    right: 30px;
+}

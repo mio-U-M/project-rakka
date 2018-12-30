@@ -10,7 +10,8 @@ prepend config-block
 block content-block
   // - page main
   header
-    h1.header-ttl 落花 -fall down flowers-
+    h1.header-ttl 落花
+      span -fall down flowers-
     .header-about
       button About
   main
@@ -18,15 +19,18 @@ block content-block
       each val in slidelist
         .carousel-slide.js-slide
           .slide-container
-            .slide-img(style=`background-image:"/img/slide${val.no}.jpg"`)
-          h2.slide-no="#0" + val.no
-          h1.slide-ttl=val.title
-      button.carousel-prev previous
-      button.carousel-next next
+            .slide-img(style=`background-image:url("/img/slide${val.no}.jpg")`)
+            h1.slide-ttl(data-color=val.colorid)
+              p="#0" + val.no
+              p=val.title
+      .carousel-prev
+        button prev
+      .carousel-next
+        button next
   footer
     small © 2018 MIO
   // - modal
-  .modal
+  .modal.js-modal
     .modal-container
       .modal-txtarea
         p.modal-txt
@@ -36,9 +40,9 @@ block content-block
     buttom.modal-close
     span
     span
-  .about
+  .about.js-about
     .about-container
       h2.about-ttl About
       p.about-txt This site is for illustration by MIO, which
   //- opening
-  .opening
+  .opening.js-opening

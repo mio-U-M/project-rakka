@@ -1,14 +1,14 @@
-@mixin pc-layout {
+@mixin pcLayout {
     @media (min-width: $pc_min_width) {
         @content;
     }
 }
-@mixin sp-layout {
+@mixin spLayout {
     @media (max-width: ($pc_min_width - 1)) {
         @content;
     }
 }
-@mixin abs-center {
+@mixin absCenter {
     position: absolute;
     top: 0;
     left: 0;
