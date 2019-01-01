@@ -30,7 +30,7 @@ main {
 
     &:hover {
         .slide-img {
-            filter: none;
+            filter: grayscale(0%) brightness(100%);
             transition: filter 0.3s ease-out;
         }
         ~ .slide-ttl {
@@ -45,7 +45,7 @@ main {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    filter: grayscale(10);
+    filter: grayscale(100%) brightness(90%);
     opacity: 0;
     transition: filter 0.3s ease-out;
 }
@@ -145,19 +145,23 @@ main {
 .curent-slide {
     opacity: 1;
     pointer-events: auto;
+    transition: opacity .3s ease-out;
 
     .slide-container,
     .slide-img {
         opacity: 1;
         pointer-events: auto;
+        transition: opacity .3s ease-out;
     }
     .slide-ttl {
         p {
             &:nth-of-type(1) {
                 opacity: 1;
+                transition: opacity .3s ease-out;
             }
             &:nth-of-type(2) {
                 opacity: 1;
+                transition: opacity .3s ease-out;
             }
         }
     }
