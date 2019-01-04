@@ -1,7 +1,7 @@
 [
   {
     "no": 1,
-    "title": "Skyblue/",
+    "title": "Skyblue/Emotional",
     "colorid": "sb",
     "previewimg": "slide1.jpg",
     "mainimg": "main1.jpg",
@@ -10,7 +10,7 @@
   },
   {
     "no": 2,
-    "title": "Purple/",
+    "title": "Purple/Radical",
     "colorid": "pp",
     "previewimg": "slide2.jpg",
     "mainimg": "main2.jpg",
@@ -19,7 +19,7 @@
   },
   {
     "no": 3,
-    "title": "Green/",
+    "title": "Green/Philosophical",
     "colorid": "gr",
     "previewimg": "slide3.jpg",
     "mainimg": "main3.jpg",
@@ -28,7 +28,7 @@
   },
   {
     "no": 4,
-    "title": "Red/",
+    "title": "Red/Potential",
     "colorid": "rd",
     "previewimg": "slide4.jpg",
     "mainimg": "main4.jpg",
@@ -37,7 +37,7 @@
   },
   {
     "no": 5,
-    "title": "Blue/",
+    "title": "Blue/Transcendental",
     "colorid": "bl",
     "previewimg": "slide5.jpg",
     "mainimg": "main5.jpg",
