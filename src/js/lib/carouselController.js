@@ -4,8 +4,8 @@ export default class carouselController {
     constructor(carouselElm) {
         this.carousel = {
             elm: carouselElm.querySelector(".js-slidecontainer"),
-            prevbtn: carouselElm.querySelector(".js-prev"),
-            nextbtn: carouselElm.querySelector(".js-next")
+            prevbtn: document.querySelector(".js-prev"),
+            nextbtn: document.querySelector(".js-next")
         };
         // 初期設定
         this.currentSlide = 0;
