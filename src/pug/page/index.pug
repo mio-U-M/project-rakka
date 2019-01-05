@@ -14,7 +14,7 @@ block content-block
       each val in slidelist
         .carousel-slide.js-slide
           .slide-container.js-slidecontainer
-            .slide-img(style=`background-image:url("/img/slide${val.no}.jpg")`)
+            .slide-img(style=`background-image:url('./img/slide${val.no}.jpg')`)
             .slide-cover.js-slidecover
           h1.slide-ttl(data-color=val.colorid)
             p(class="js-slideno")="#0" + val.no
