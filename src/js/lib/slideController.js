@@ -1,6 +1,7 @@
 import TweenMax from "gsap/TweenMax";
 import { ANIMATION_CONFIG } from "@/js/lib/constant.js";
 
+
 export default class slideController {
     constructor(elm) {
         this.slide = {
