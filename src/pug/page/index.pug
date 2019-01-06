@@ -11,8 +11,8 @@ block content-block
   // - page main
   main
     .carousel.js-carousel
-      each val in slidelist
-        .carousel-slide.js-slide
+      each val, index in slidelist
+        .carousel-slide(data-slide=index).js-slide
           .slide-container.js-slidecontainer
             .slide-img(style=`background-image:url('./img/slide${val.no}.jpg')`)
             .slide-cover.js-slidecover
@@ -32,13 +32,16 @@ block content-block
     small © 2018 MIO
   // - modal
   .modal.js-modal
-    .modal-container
-      .modal-txtarea
-        p.modal-txt
-        a(href="#").modal-link
-      .modal-ttl
-      .modal-previewimg
-    buttom.modal-close
+    .modal-container.js-modalcontainer
+      .modal-previewtxt
+        h2.modal-no.js-modalno #01
+        h1.modal-ttl.js-modalttl Color/DummyTitle
+        .modal-txtarea
+          p.modal-txt.js-modaltxt 
+          a(href="#").modal-link.js-modallink Instagram
+        .modal-close
+          buttom.js-modalclose CLOSE
+      .modal-previewimg.js-modalimg
     span
     span
   .about.js-about
