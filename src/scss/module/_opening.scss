@@ -7,10 +7,41 @@
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    filter: grayscale(10);
+
+    &[data-color="true"] {
+        filter: none;
+    }
 
     &[data-hide="true"] {
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
     }
+}
+
+.opening-ttlarea {
+    @include absCenter;
+    width: 40%;
+    height: 40%;
+
+    &[data-hide="true"] {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+.opening-ttl {
+   text-align: center;
+   font-size: 70px;
+   span {
+       display: block;
+   }
+
+}
+
+.opening-subttl {
+    text-align: center;
+    font-size: 35px;
 }
