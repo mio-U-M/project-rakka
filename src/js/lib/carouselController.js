@@ -1,15 +1,18 @@
+import TweenMax from "gsap/TweenMax";
 import slideController from "@/js/lib/slideController";
+import { ANIMATION_CONFIG } from "@/js/lib/constant.js";
 
 export default class carouselController {
-    constructor(carouselElm) {
+    constructor() {
         this.carousel = {
-            elm: carouselElm.querySelector(".js-slidecontainer"),
             prevbtn: document.querySelector(".js-prev"),
             nextbtn: document.querySelector(".js-next")
         };
         // 初期設定
         this.currentSlide = 0;
         this.slides = [];
+
+        this.slideOpts = {};
 
         this.init();
     }
@@ -59,13 +62,5 @@ export default class carouselController {
             this.currentSlide = prevSlide;
             this.isAnimating = false;
         });
-    }
-
-    hideSlide() {
-        
-    }
-
-    showSlide() {
-        
     }
 }

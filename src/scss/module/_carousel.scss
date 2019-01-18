@@ -2,9 +2,25 @@
 main {
     width: 100%;
     height: 100%;
+    background: #000;
+}
+.contents {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+
+    &[data-show="true"] {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
 }
 .carousel {
-    position: relative;
+    position: absolute;
     padding: 0;
     margin: 0;
     width: 100%;

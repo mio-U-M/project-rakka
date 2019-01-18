@@ -10,40 +10,51 @@ prepend config-block
 block content-block
   // - page main
   main
-    .carousel.js-carousel
-      each val in slidelist
-        .carousel-slide.js-slide
-          .slide-container.js-slidecontainer
-            .slide-img(style=`background-image:url('./img/slide${val.no}.jpg')`)
-            .slide-cover.js-slidecover
-          h1.slide-ttl(data-color=val.colorid)
-            p(class="js-slideno")="#0" + val.no
-            p(class="js-slidettl")=val.title
-    .carousel-prev
-      button.js-prev prev
-    .carousel-next
-      button.js-next next
-  header
-    h1.header-ttl 落花
-      span -fall down flowers-
-    .header-about
-      button About
-  footer
-    small © 2018 MIO
-  // - modal
-  .modal.js-modal
-    .modal-container
-      .modal-txtarea
-        p.modal-txt
-        a(href="#").modal-link
-      .modal-ttl
-      .modal-previewimg
-    buttom.modal-close
-    span
-    span
-  .about.js-about
-    .about-container
-      h2.about-ttl About
-      p.about-txt This site is for illustration by MIO, which
-  //- opening
-  .opening.js-opening
+    .opening.js-opening
+      .opening-ttlarea
+        h1.opening-ttl.js-openingttl
+          span.js-openingttl1 落
+          span.js-openingttl2 花
+        h2.opening-subttl.js-openingsubttl
+          span -fall down flowers-
+    .contents.js-contents
+      .carousel.js-carousel
+        each val, index in slidelist
+          .carousel-slide(data-slide=index).js-slide
+            .slide-container.js-slidecontainer
+              .slide-img(style=`background-image:url('./img/slide${val.no}.jpg')`)
+              .slide-cover.js-slidecover
+            h1.slide-ttl(data-color=val.colorid)
+              p(class="js-slideno")="#0" + val.no
+              p(class="js-slidettl")=val.title
+      .carousel-prev
+        button.js-prev prev
+      .carousel-next
+        button.js-next next
+      header
+        h1.header-ttl 落花
+          span -fall down flowers-
+        .header-about
+          button About
+      footer
+        small © 2018 MIO
+      // - modal
+      .modal.js-modal
+        .modal-container.js-modalcontainer
+          .modal-previewtxt
+            h2.modal-no.js-modalno #01
+            h1.modal-ttl.js-modalttl Color/DummyTitle
+            .modal-txtarea
+              p.modal-txt.js-modaltxt 
+              a(href="#").modal-link.js-modallink Instagram
+            .modal-close
+              buttom.js-modalclose CLOSE
+          .modal-previewimg.js-modalimg
+        span
+        span
+      //- .about.js-about
+      //-   .about-container
+      //-     h2.about-ttl About
+      //-     p.about-txt This site is for illustration by MIO, which
+      //- opening
+    

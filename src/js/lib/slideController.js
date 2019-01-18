@@ -1,19 +1,27 @@
 import TweenMax from "gsap/TweenMax";
+import Modal from "@/js/lib/modalController"
 import { ANIMATION_CONFIG } from "@/js/lib/constant.js";
-
 
 export default class slideController {
     constructor(elm) {
         this.slide = {
             elm: elm,
+            id: elm.getAttribute("data-slide"),
             container: elm.querySelector(".js-slidecontainer"),
             cover: elm.querySelector(".js-slidecover"),
             no: elm.querySelector(".js-slideno"),
             ttl: elm.querySelector(".js-slidettl")
         };
 
+        this.modalClose = document.querySelector(".js-modalclose");
+
         this.showAnimOpts = {};
         this.hideAnimOpts = {};
+        this.openAnimOpts = {};
+        this.closeAnimOpts = {};
+
+        this.slide.container.addEventListener('click', () => this.openModal());
+        this.modalClose.addEventListener('click', () => this.closeModal());
     }
 
     initCurent() {
@@ -108,5 +116,29 @@ export default class slideController {
             TweenMax.to(this.slide.no, ANIMATION_CONFIG.duration, this.hideAnimOpts.noOpts);
             TweenMax.to(this.slide.ttl, ANIMATION_CONFIG.duration, this.hideAnimOpts.ttlOpts);
         });
+    }
+
+    openModal() {
+        this.openAnimOpts = {
+            scale: 2.0,
+            delay: 0,
+            ease: ANIMATION_CONFIG.ease,
+            startAt: { scale: 1.0 },
+        };
+
+        Modal.openModal(this.slide.id);
+        TweenMax.to(this.slide.container, ANIMATION_CONFIG.duration, this.openAnimOpts);
+    }
+
+    closeModal() {
+        this.closeAnimOpts = {
+            scale: 1.0,
+            delay: 0,
+            ease: ANIMATION_CONFIG.ease,
+            startAt: { scale: 2.0 },
+        };
+
+        Modal.closeModal();
+        TweenMax.to(this.slide.container, ANIMATION_CONFIG.duration, this.closeAnimOpts);
     }
 }
