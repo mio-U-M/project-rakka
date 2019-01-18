@@ -20,105 +20,215 @@
     <meta property="twitter:title" content="project-rakka">
     <meta property="twitter:description" content="project-rakka web page.">
     <!-- stylesheet-->
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+    <script src="./js/three.min.js"></script>
+    <script id="vertexShader" type="x-shader/x-vertex">
+      void main() {
+          gl_Position = vec4( position, 1.0 );
+      }
+    </script>
+    <script id="fragmentShader" type="x-shader/x-fragment">
+      precision mediump float;
+      uniform vec2  u_resolution;     // u_resolution (width, height)
+      uniform vec2  u_mouse;          // u_mouse      (0.0 ~ 1.0)
+      uniform float u_time;           // u_time       (1second == 1.0)
+      
+      const float PI = 3.1415926;
+      
+      
+      // noise from : https://github.com/ashima/webgl-noise/blob/master/src/noise2D.glsl ----
+      vec3 mod289(vec3 x) {
+        return x - floor(x * (1.0 / 289.0)) * 289.0;
+      }
+      
+      vec2 mod289(vec2 x) {
+        return x - floor(x * (1.0 / 289.0)) * 289.0;
+      }
+      
+      vec3 permute(vec3 x) {
+        return mod289(((x*34.0)+1.0)*x);
+      }
+      
+      float snoise(vec2 v)
+        {
+        const vec4 C = vec4(0.211324865405187,  // (3.0-sqrt(3.0))/6.0
+                            0.366025403784439,  // 0.5*(sqrt(3.0)-1.0)
+                          -0.577350269189626,  // -1.0 + 2.0 * C.x
+                            0.024390243902439); // 1.0 / 41.0
+      // First corner
+        vec2 i  = floor(v + dot(v, C.yy) );
+        vec2 x0 = v -   i + dot(i, C.xx);
+      
+      // Other corners
+        vec2 i1;
+        //i1.x = step( x0.y, x0.x ); // x0.x > x0.y ? 1.0 : 0.0
+        //i1.y = 1.0 - i1.x;
+        i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+        // x0 = x0 - 0.0 + 0.0 * C.xx ;
+        // x1 = x0 - i1 + 1.0 * C.xx ;
+        // x2 = x0 - 1.0 + 2.0 * C.xx ;
+        vec4 x12 = x0.xyxy + C.xxzz;
+        x12.xy -= i1;
+      
+      // Permutations
+        i = mod289(i); // Avoid truncation effects in permutation
+        vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))
+          + i.x + vec3(0.0, i1.x, 1.0 ));
+      
+        vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+        m = m*m ;
+        m = m*m ;
+      
+      // Gradients: 41 points uniformly over a line, mapped onto a diamond.
+      // The ring size 17*17 = 289 is close to a multiple of 41 (41*7 = 287)
+      
+        vec3 x = 2.0 * fract(p * C.www) - 1.0;
+        vec3 h = abs(x) - 0.5;
+        vec3 ox = floor(x + 0.5);
+        vec3 a0 = x - ox;
+      
+      // Normalise gradients implicitly by scaling m
+      // Approximation of: m *= inversesqrt( a0*a0 + h*h );
+        m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+      
+      // Compute final noise value at P
+        vec3 g;
+        g.x  = a0.x  * x0.x  + h.x  * x0.y;
+        g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+        return 130.0 * dot(m, g);
+      }
+      
+      // -------
+      void main(){
+          vec2 st = gl_FragCoord.xy / u_resolution.xy;
+          st.x *= u_resolution.x / u_resolution.y;
+          vec3 color = vec3(0.0);
+          vec2 pos = vec2(st*1.5);
+          
+          float DF = 0.0;
+          
+          float a = 0.0;
+          vec2 vel = vec2(u_time * 0.015);
+          DF += snoise(pos+vel) * 0.35 + 0.35;
+          
+          a = snoise(pos*vec2(cos(u_time * 0.006),sin(u_time * 0.06))*0.1) * PI;
+          vel = vec2(cos(a),sin(a));
+          DF += snoise(pos+vel)* 0.256;
+          
+          color = vec3(smoothstep(0.6, 0.85,fract(DF)));
+          color *= vec3(snoise(st)*.5 / 0.3);
+          
+          vec3 destColor = vec3(1.0 * sin(u_time * 0.15), 0.2, 1.0 * cos(u_time * 0.15));
+          
+          gl_FragColor = vec4(1.0 - (destColor * color), 1.0);
+      }
+      
+    </script>
   <link href="./css/style.css" rel="stylesheet"></head>
   <body>
     <div class="wrapper">
       <!-- - page main-->
       <main>
-        <div class="carousel js-carousel">
-          <div class="carousel-slide js-slide">
-            <div class="slide-container js-slidecontainer">
-              <div class="slide-img" style="background-image:url('./img/slide1.jpg')"></div>
-              <div class="slide-cover js-slidecover"></div>
-            </div>
-            <h1 class="slide-ttl" data-color="sb">
-              <p class="js-slideno">#01</p>
-              <p class="js-slidettl">Skyblue/Emotional</p>
-            </h1>
-          </div>
-          <div class="carousel-slide js-slide">
-            <div class="slide-container js-slidecontainer">
-              <div class="slide-img" style="background-image:url('./img/slide2.jpg')"></div>
-              <div class="slide-cover js-slidecover"></div>
-            </div>
-            <h1 class="slide-ttl" data-color="pp">
-              <p class="js-slideno">#02</p>
-              <p class="js-slidettl">Purple/Radical</p>
-            </h1>
-          </div>
-          <div class="carousel-slide js-slide">
-            <div class="slide-container js-slidecontainer">
-              <div class="slide-img" style="background-image:url('./img/slide3.jpg')"></div>
-              <div class="slide-cover js-slidecover"></div>
-            </div>
-            <h1 class="slide-ttl" data-color="gr">
-              <p class="js-slideno">#03</p>
-              <p class="js-slidettl">Green/Philosophical</p>
-            </h1>
-          </div>
-          <div class="carousel-slide js-slide">
-            <div class="slide-container js-slidecontainer">
-              <div class="slide-img" style="background-image:url('./img/slide4.jpg')"></div>
-              <div class="slide-cover js-slidecover"></div>
-            </div>
-            <h1 class="slide-ttl" data-color="rd">
-              <p class="js-slideno">#04</p>
-              <p class="js-slidettl">Red/Potential</p>
-            </h1>
-          </div>
-          <div class="carousel-slide js-slide">
-            <div class="slide-container js-slidecontainer">
-              <div class="slide-img" style="background-image:url('./img/slide5.jpg')"></div>
-              <div class="slide-cover js-slidecover"></div>
-            </div>
-            <h1 class="slide-ttl" data-color="bl">
-              <p class="js-slideno">#05</p>
-              <p class="js-slidettl">Blue/Transcendental</p>
-            </h1>
-          </div>
-          <div class="carousel-slide js-slide">
-            <div class="slide-container js-slidecontainer">
-              <div class="slide-img" style="background-image:url('./img/slide6.jpg')"></div>
-              <div class="slide-cover js-slidecover"></div>
-            </div>
-            <h1 class="slide-ttl" data-color="yl">
-              <p class="js-slideno">#06</p>
-              <p class="js-slidettl">Yellow/Suggestive</p>
-            </h1>
+        <div class="opening js-opening">
+          <div class="opening-ttlarea">
+            <h1 class="opening-ttl js-openingttl"><span class="js-openingttl1">落</span><span class="js-openingttl2">花</span></h1>
+            <h2 class="opening-subttl js-openingsubttl"><span>-fall down flowers-</span></h2>
           </div>
         </div>
-        <div class="carousel-prev">
-          <button class="js-prev">prev</button>
-        </div>
-        <div class="carousel-next">
-          <button class="js-next">next</button>
+        <div class="contents js-contents">
+          <div class="carousel js-carousel">
+            <div class="carousel-slide js-slide" data-slide="0">
+              <div class="slide-container js-slidecontainer">
+                <div class="slide-img" style="background-image:url('./img/slide1.jpg')"></div>
+                <div class="slide-cover js-slidecover"></div>
+              </div>
+              <h1 class="slide-ttl" data-color="sb">
+                <p class="js-slideno">#01</p>
+                <p class="js-slidettl">Skyblue/Emotional</p>
+              </h1>
+            </div>
+            <div class="carousel-slide js-slide" data-slide="1">
+              <div class="slide-container js-slidecontainer">
+                <div class="slide-img" style="background-image:url('./img/slide2.jpg')"></div>
+                <div class="slide-cover js-slidecover"></div>
+              </div>
+              <h1 class="slide-ttl" data-color="pp">
+                <p class="js-slideno">#02</p>
+                <p class="js-slidettl">Purple/Radical</p>
+              </h1>
+            </div>
+            <div class="carousel-slide js-slide" data-slide="2">
+              <div class="slide-container js-slidecontainer">
+                <div class="slide-img" style="background-image:url('./img/slide3.jpg')"></div>
+                <div class="slide-cover js-slidecover"></div>
+              </div>
+              <h1 class="slide-ttl" data-color="gr">
+                <p class="js-slideno">#03</p>
+                <p class="js-slidettl">Green/Philosophical</p>
+              </h1>
+            </div>
+            <div class="carousel-slide js-slide" data-slide="3">
+              <div class="slide-container js-slidecontainer">
+                <div class="slide-img" style="background-image:url('./img/slide4.jpg')"></div>
+                <div class="slide-cover js-slidecover"></div>
+              </div>
+              <h1 class="slide-ttl" data-color="rd">
+                <p class="js-slideno">#04</p>
+                <p class="js-slidettl">Red/Potential</p>
+              </h1>
+            </div>
+            <div class="carousel-slide js-slide" data-slide="4">
+              <div class="slide-container js-slidecontainer">
+                <div class="slide-img" style="background-image:url('./img/slide5.jpg')"></div>
+                <div class="slide-cover js-slidecover"></div>
+              </div>
+              <h1 class="slide-ttl" data-color="bl">
+                <p class="js-slideno">#05</p>
+                <p class="js-slidettl">Blue/Transcendental</p>
+              </h1>
+            </div>
+            <div class="carousel-slide js-slide" data-slide="5">
+              <div class="slide-container js-slidecontainer">
+                <div class="slide-img" style="background-image:url('./img/slide6.jpg')"></div>
+                <div class="slide-cover js-slidecover"></div>
+              </div>
+              <h1 class="slide-ttl" data-color="yl">
+                <p class="js-slideno">#06</p>
+                <p class="js-slidettl">Yellow/Suggestive</p>
+              </h1>
+            </div>
+          </div>
+          <div class="carousel-prev">
+            <button class="js-prev">prev</button>
+          </div>
+          <div class="carousel-next">
+            <button class="js-next">next</button>
+          </div>
+          <header>
+            <h1 class="header-ttl">落花<span>-fall down flowers-</span></h1>
+            <div class="header-about">
+              <button>About</button>
+            </div>
+          </header>
+          <footer><small>© 2018 MIO</small></footer>
+          <!-- - modal-->
+          <div class="modal js-modal">
+            <div class="modal-container js-modalcontainer">
+              <div class="modal-previewtxt">
+                <h2 class="modal-no js-modalno">#01</h2>
+                <h1 class="modal-ttl js-modalttl">Color/DummyTitle</h1>
+                <div class="modal-txtarea">
+                  <p class="modal-txt js-modaltxt"> </p><a class="modal-link js-modallink" href="#">Instagram</a>
+                </div>
+                <div class="modal-close">
+                  <buttom class="js-modalclose">CLOSE</buttom>
+                </div>
+              </div>
+              <div class="modal-previewimg js-modalimg"></div>
+            </div><span></span><span></span>
+          </div>
         </div>
       </main>
-      <header>
-        <h1 class="header-ttl">落花<span>-fall down flowers-</span></h1>
-        <div class="header-about">
-          <button>About</button>
-        </div>
-      </header>
-      <footer><small>© 2018 MIO</small></footer>
-      <!-- - modal-->
-      <div class="modal js-modal">
-        <div class="modal-container">
-          <div class="modal-txtarea">
-            <p class="modal-txt"></p><a class="modal-link" href="#"></a>
-          </div>
-          <div class="modal-ttl"></div>
-          <div class="modal-previewimg"></div>
-        </div>
-        <buttom class="modal-close"></buttom><span></span><span></span>
-      </div>
-      <div class="about js-about">
-        <div class="about-container">
-          <h2 class="about-ttl">About</h2>
-          <p class="about-txt">This site is for illustration by MIO, which</p>
-        </div>
-      </div>
-      <div class="opening js-opening"></div>
     </div>
     <!-- javascript-->
   <script type="text/javascript" src="./js/script.js"></script></body>
