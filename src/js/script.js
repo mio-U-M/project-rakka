@@ -65,12 +65,11 @@ openingTl
     .to(openingsubttl, 5.0, { opacity: 0, scale: 1.2, ease: Power4.easeOut }, 11.0)
     .to(filterelm3, 5.0, { val: 50,  ease: Power4.easeOut, onUpdate: () => TweenMax.set(openingsubttl, { 
         webkitFilter: "blur(" + filterelm3.val + "px)",
-        filter:"blur(" +  filterelm3.val + "px)"
-    })}, 11.0)
+        filter:"blur(" +  filterelm3.val + "px)"})}, 11.0)
     .to(filterelm0, 8.0, { val: 10, ease: Power4.easeOut, onUpdate: () => TweenMax.set(opening, { 
         webkitFilter: "grayscale(" + filterelm0.val + ")",
-        filter:"grayscale(" +  filterelm0.val + ")"
-    })}, 11.0)
-    .to(contents, 5.0, { opacity: 1, ease: Power4.easeOut, onComplete: () =>{
-        contents.setAttribute("data-show", "true");
-    }}, 12.5)
+        filter:"grayscale(" +  filterelm0.val + ")"})}, 11.0)
+    .to(contents, 5.0, { opacity: 1, ease: Power4.easeOut, 
+        onStart: () => { contents.setAttribute("data-init", "true"); },
+        onComplete: () =>{ contents.setAttribute("data-show", "true"); }
+    }, 13.0)

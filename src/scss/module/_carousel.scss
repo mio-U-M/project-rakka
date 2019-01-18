@@ -5,6 +5,7 @@ main {
     background: #000;
 }
 .contents {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -13,9 +14,12 @@ main {
     opacity: 0;
     pointer-events: none;
 
+    &[data-init="true"] {
+        display: block;
+    }
+
     &[data-show="true"] {
         opacity: 1;
-        visibility: visible;
         pointer-events: auto;
     }
 }
