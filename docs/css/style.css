@@ -48,11 +48,15 @@ body {
   -webkit-text-size-adjust: 100%;
           text-size-adjust: 100%; }
 
+a {
+  text-decoration: none;
+  color: #000; }
+
 .wrapper {
   position: relative;
   height: 100vh;
   overflow: hidden;
-  font-family: serif;
+  font-family: "Hannari", serif;
   color: #333;
   font-size: 16px;
   line-height: 1.5; }
@@ -94,16 +98,30 @@ header {
     width: auto;
     height: 100%;
     float: right;
-    font-family: serif;
+    font-family: "Hannari", serif;
     font-size: 20px;
     text-align: right; }
 
 main {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  background: #000; }
+
+.contents {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none; }
+  .contents[data-show="true"] {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto; }
 
 .carousel {
-  position: relative;
+  position: absolute;
   padding: 0;
   margin: 0;
   width: 100%;
@@ -218,7 +236,7 @@ main {
     width: 100%;
     height: 100%;
     font-size: 18px;
-    font-family: serif; }
+    font-family: "Hannari", serif; }
 
 .carousel-prev {
   left: 30px; }
@@ -241,13 +259,83 @@ main {
     transition: opacity .3s ease-out; }
 
 .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   opacity: 0;
   visibility: hidden;
-  pointer-events: none; }
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.7);
+  transition: opacity .6s ease-out; }
   .modal[data-show="true"] {
     opacity: 1;
     visibility: visible;
-    pointer-events: auto; }
+    pointer-events: auto;
+    transition: opacity .6s ease-out; }
+
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  background: #fff; }
+
+.modal-previewtxt {
+  width: 40%;
+  margin: auto 0; }
+
+.modal-ttl {
+  font-size: 30px; }
+
+.modal-txt {
+  width: 80%;
+  margin: 0 auto; }
+
+.modal-link {
+  margin-top: 10px;
+  text-align: center;
+  text-shadow: none;
+  transition: text-shadow .6s ease-out; }
+  .modal-link:hover {
+    text-shadow: 2px 2px 0px #c5c5c5; }
+
+.modal-close button {
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+          appearance: none;
+  overflow: visible; }
+
+.modal-previewimg {
+  width: 45%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; }
+  .modal-previewimg[data-img="1"] {
+    background-image: url("/img/img1.jpg"); }
+  .modal-previewimg[data-img="2"] {
+    background-image: url("/img/img2.jpg"); }
+  .modal-previewimg[data-img="3"] {
+    background-image: url("/img/img3.jpg"); }
+  .modal-previewimg[data-img="4"] {
+    background-image: url("/img/img4.jpg"); }
+  .modal-previewimg[data-img="5"] {
+    background-image: url("/img/img5.jpg"); }
+  .modal-previewimg[data-img="6"] {
+    background-image: url("/img/img6.jpg"); }
 
 .about {
   opacity: 0;
@@ -269,6 +357,53 @@ footer {
 
 small {
   font-size: 12px; }
+
+.opening {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  -webkit-filter: none;
+          filter: none; }
+  .opening[data-color="true"] {
+    -webkit-filter: grayscale(10);
+            filter: grayscale(10); }
+  .opening[data-hide="true"] {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; }
+
+.opening-ttlarea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 40%;
+  height: 40%; }
+  .opening-ttlarea[data-hide="true"] {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; }
+
+.opening-ttl {
+  text-align: center;
+  font-size: 70px; }
+  .opening-ttl span {
+    opacity: 0;
+    display: block;
+    -webkit-transform: scale(2);
+            transform: scale(2); }
+
+.opening-subttl {
+  opacity: 0;
+  text-align: center;
+  font-size: 35px;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5); }
 
 @media (min-width: 800px) {
   .sp-only {
