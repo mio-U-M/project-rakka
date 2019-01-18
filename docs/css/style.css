@@ -325,17 +325,17 @@ main {
   background-position: center;
   background-size: contain; }
   .modal-previewimg[data-img="1"] {
-    background-image: url("/img/img1.jpg"); }
+    background-image: url("../img/img1.jpg"); }
   .modal-previewimg[data-img="2"] {
-    background-image: url("/img/img2.jpg"); }
+    background-image: url("../img/img2.jpg"); }
   .modal-previewimg[data-img="3"] {
-    background-image: url("/img/img3.jpg"); }
+    background-image: url("../img/img3.jpg"); }
   .modal-previewimg[data-img="4"] {
-    background-image: url("/img/img4.jpg"); }
+    background-image: url("../img/img4.jpg"); }
   .modal-previewimg[data-img="5"] {
-    background-image: url("/img/img5.jpg"); }
+    background-image: url("../img/img5.jpg"); }
   .modal-previewimg[data-img="6"] {
-    background-image: url("/img/img6.jpg"); }
+    background-image: url("../img/img6.jpg"); }
 
 .about {
   opacity: 0;
