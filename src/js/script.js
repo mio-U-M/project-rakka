@@ -1,67 +1,76 @@
 import { BASE_DIR } from "../constants.yml";
 import "ie-buster/dist/ie-buster.min.js";
 import carouselController from "@/js/lib/carouselController";
+import { shaderinit } from "@/js/lib/shaderController.js";
+import { TweenMax, TimelineMax } from "gsap/TweenMax";
 
+const opening = document.querySelector(".js-opening");
+const openingttl1 = document.querySelector(".js-openingttl1");
+const openingttl2 = document.querySelector(".js-openingttl2");
+const openingsubttl = document.querySelector(".js-openingsubttl");
+const contents = document.querySelector(".js-contents");
+
+// carousel init
 const carousel = new carouselController(document.querySelector(".js-carousel"));
+// shader init
+shaderinit();
 
-let container;
-let camera, scene, renderer;
-let uniforms;
 
-init();
-animate();
+const openingTl = new TimelineMax();
+let filterelm0 = { val: 10 };
+let filterelm1 = { val: 30 };
+let filterelm2 = { val: 30 };
+let filterelm3 = { val: 30 };
 
-function init() {
-    container = document.querySelector(".js-opening");
-
-    camera = new THREE.Camera();
-    camera.position.z = 1;
-
-    scene = new THREE.Scene();
-
-    const geometry = new THREE.PlaneBufferGeometry(2, 2);
-
-    uniforms = {
-        u_time: { type: "f", value: 1.0 },
-        u_resolution: { type: "v2", value: new THREE.Vector2() },
-        u_mouse: { type: "v2", value: new THREE.Vector2() }
-    };
-
-    const material = new THREE.ShaderMaterial({
-        uniforms: uniforms,
-        vertexShader: document.getElementById("vertexShader").textContent,
-        fragmentShader: document.getElementById("fragmentShader").textContent
-    });
-
-    const mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
-
-    renderer = new THREE.WebGLRenderer();
-    renderer.setPixelRatio(window.devicePixelRatio);
-
-    container.appendChild(renderer.domElement);
-
-    onWindowResize();
-    window.addEventListener("resize", onWindowResize, false);
-
-    document.onmousemove = function(e) {
-        uniforms.u_mouse.value.x = e.pageX;
-        uniforms.u_mouse.value.y = e.pageY;
-    };
-}
-
-function onWindowResize(event) {
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    uniforms.u_resolution.value.x = renderer.domElement.width;
-    uniforms.u_resolution.value.y = renderer.domElement.height;
-}
-
-function animate() {
-    requestAnimationFrame(animate);
-    render();
-}
-
-function render() {
-    uniforms.u_time.value += 0.05;
-    renderer.render(scene, camera);
-}
+openingTl
+    // initialize
+    .set(opening, { opacity: 0 }, 0)
+    .set(openingttl1, { opacity: 0 }, 0)
+    .set(openingttl2, { opacity: 0 }, 0)
+    .set(openingsubttl, { opacity: 0 }, 0)
+    // show up and colored background
+    .to(opening, 8.0, { opacity: 1 , delay: 0.7, ease: Power4.easeOut}, 1.0)
+    .to(filterelm0, 7.0, { val: 0, ease: Power4.easeOut, onUpdate: () => TweenMax.set(opening, { 
+        webkitFilter: "grayscale(" + filterelm0.val + ")",
+        filter:"grayscale(" +  filterelm0.val + ")"
+    })}, 1.0)
+    // openingttl1
+    .to(openingttl1, 3.0, { opacity: 1.0, scale: 1.0, ease: Power4.easeOut }, 5.0)
+    .to(filterelm1, 3.0, { val: 0, ease: Power4.easeOut, onUpdate: () => TweenMax.set(openingttl1, { 
+        webkitFilter: "blur(" + filterelm1.val + "px)",
+        filter:"blur(" +  filterelm1.val + "px)"
+    })}, 5.0)
+    // openingttl2
+    .to(openingttl2, 3.0, { opacity: 1.0, scale: 1.0, delay: 0.7, ease: Power4.easeOut }, 5.0)
+    .to(filterelm2, 3.0, { val: 0, delay: 0.7, ease: Power4.easeOut, onUpdate: () => TweenMax.set(openingttl2, { 
+        webkitFilter: "blur(" + filterelm2.val + "px)",
+        filter:"blur(" +  filterelm2.val + "px)"
+    })}, 5.0)
+    // openingsubttl
+    .to(openingsubttl, 3.0, { opacity: 1.0, scale: 1.0, delay: 0.7, ease: Power4.easeOut }, 6.0)
+    .to(filterelm3, 3.0, { val: 0, delay: 0.7, ease: Power4.easeOut, onUpdate: () => TweenMax.set(openingsubttl, { 
+        webkitFilter: "blur(" + filterelm3.val + "px)",
+        filter:"blur(" +  filterelm3.val + "px)"
+    })}, 6.0)
+    .to(openingttl1, 5.0, { opacity: 0, scale: 1.2, ease: Power4.easeOut }, 11.0)
+    .to(filterelm1, 5.0, { val: 50,  ease: Power4.easeOut, onUpdate: () => TweenMax.set(openingttl1, { 
+        webkitFilter: "blur(" + filterelm1.val + "px)",
+        filter:"blur(" +  filterelm1.val + "px)"
+    })}, 11.0)
+    .to(openingttl2, 5.0, { opacity: 0, scale: 1.2, ease: Power4.easeOut }, 11.0)
+    .to(filterelm2, 5.0, { val: 50,  ease: Power4.easeOut, onUpdate: () => TweenMax.set(openingttl2, { 
+        webkitFilter: "blur(" + filterelm2.val + "px)",
+        filter:"blur(" +  filterelm2.val + "px)"
+    })}, 11.0)
+    .to(openingsubttl, 5.0, { opacity: 0, scale: 1.2, ease: Power4.easeOut }, 11.0)
+    .to(filterelm3, 5.0, { val: 50,  ease: Power4.easeOut, onUpdate: () => TweenMax.set(openingsubttl, { 
+        webkitFilter: "blur(" + filterelm3.val + "px)",
+        filter:"blur(" +  filterelm3.val + "px)"
+    })}, 11.0)
+    .to(filterelm0, 8.0, { val: 10, ease: Power4.easeOut, onUpdate: () => TweenMax.set(opening, { 
+        webkitFilter: "grayscale(" + filterelm0.val + ")",
+        filter:"grayscale(" +  filterelm0.val + ")"
+    })}, 11.0)
+    .to(contents, 5.0, { opacity: 1, ease: Power4.easeOut, onComplete: () =>{
+        contents.setAttribute("data-show", "true");
+    }}, 12.5)
