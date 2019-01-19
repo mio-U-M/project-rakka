@@ -74,9 +74,8 @@ class PreloadManager extends EventEmitter {
     }
     
     preload() {
-        this.emit('complete');
-        // this.queue.loadManifest(MANIFEST);
-        // this.queue.load();
+        this.queue.loadManifest(MANIFEST);
+        this.queue.load();
     }
 
     handleLoading(e) {
