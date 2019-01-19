@@ -20,7 +20,7 @@ let filterelm3 = { val: 30 };
 // carousel init
 const carousel = new carouselController(document.querySelector(".js-carousel"));
 carousel.on('hover', () => {
-    TweenMax.to(filterelm0, 1.0, 
+    TweenMax.to(filterelm0, 0.4,
         {
             val: 0,
             ease: Power4.easeOut,
@@ -33,7 +33,7 @@ carousel.on('hover', () => {
     )
 });
 carousel.on('hoverout', () => {
-    TweenMax.to(filterelm0, 1.0, 
+    TweenMax.to(filterelm0, 0.4, 
         {
             val: 10,
             ease: Power4.easeOut,

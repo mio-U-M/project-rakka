@@ -53,11 +53,11 @@ main {
     &:hover {
         .slide-img {
             filter: grayscale(0%) brightness(100%);
-            transition: filter 0.3s ease-out;
+            transition: filter 0.4s ease-out;
         }
         ~ .slide-ttl {
             color: $color-slidetxt;
-            transition: color 0.3s ease-out;
+            transition: color 0.4s ease-out;
         }
     }
 }
@@ -68,7 +68,7 @@ main {
     background-position: center;
     background-size: cover;
     filter: grayscale(100%) brightness(90%);
-    transition: filter 0.3s ease-out;
+    transition: filter 0.4s ease-out;
 }
 .slide-cover {
     position: absolute;
@@ -87,7 +87,7 @@ main {
     pointer-events: none;
     text-align: center;
     text-shadow: 2px 2px 10px #838383;
-    transition: color 0.3s ease-out;
+    transition: color 0.4s ease-out;
 
     &[data-color="sb"] {
         color: $color-skyblue;
