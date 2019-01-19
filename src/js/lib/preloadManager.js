@@ -6,39 +6,39 @@ const MANIFEST = [
     // 画像
     {
         id  : 'img_1',
-        src : '../img/img1.jpg'
+        src : './img/img1.jpg'
     },
     {
         id  : 'img_2',
-        src : '../img/img2.jpg'
+        src : './img/img2.jpg'
     },
     {
         id  : 'img_3',
-        src : '../img/img3.jpg'
+        src : './img/img3.jpg'
     },
     {
         id  : 'img_4',
-        src : '../img/img4.jpg'
+        src : './img/img4.jpg'
     },
     {
         id  : 'img_5',
-        src : '/img/img5.jpg'
+        src : './img/img5.jpg'
     },
     {
         id  : 'img_6',
-        src : '/img/img6.jpg'
+        src : './img/img6.jpg'
     },
     {
         id  : 'img_7',
-        src : '/img/slide1.jpg'
+        src : './img/slide1.jpg'
     },
     {
         id  : 'img_8',
-        src : '/img/slide2.jpg'
+        src : './img/slide2.jpg'
     },
     {
         id  : 'img_9',
-        src : '/img/slide3.jpg'
+        src : './img/slide3.jpg'
     },
     {
         id  : 'img_10',
@@ -46,11 +46,11 @@ const MANIFEST = [
     },
     {
         id  : 'img_11',
-        src : '/img/slide5.jpg'
+        src : './img/slide5.jpg'
     },
     {
         id  : 'img_12',
-        src : '/img/slide6.jpg'
+        src : './img/slide6.jpg'
     }
 ]
 
