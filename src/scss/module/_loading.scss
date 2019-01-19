@@ -1,0 +1,22 @@
+.loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-family: $font-main;
+    background: #000;
+    color: #fff;
+
+    .loading-txt {
+        @include absCenter;
+        font-size: 30px;
+
+        @for $i from 1 through 7 {
+            span {
+                opacity: 0;
+                animation: showAndHide 2.0s ease-out (0 + 0.1 * #{$i})s;
+            }
+        }
+    }
+}
