@@ -5108,6 +5108,11 @@ postcss@^6.0.0, postcss@^6.0.1, postcss@^6.0.16, postcss@^6.0.23:
     source-map "^0.6.1"
     supports-color "^5.4.0"
 
+preload-js@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/preload-js/-/preload-js-0.6.3.tgz#dcb4b7c0e182dbbce2677ad4f2cfaee2e25b4df7"
+  integrity sha1-3LS3wOGC27ziZ3rU8s+u4uJbTfc=
+
 prepend-http@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
