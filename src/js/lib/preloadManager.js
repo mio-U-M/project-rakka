@@ -22,35 +22,35 @@ const MANIFEST = [
     },
     {
         id  : 'img_5',
-        src : '../img/img5.jpg'
+        src : '/img/img5.jpg'
     },
     {
         id  : 'img_6',
-        src : '../img/img6.jpg'
+        src : '/img/img6.jpg'
     },
     {
         id  : 'img_7',
-        src : '../img/slide1.jpg'
+        src : '/img/slide1.jpg'
     },
     {
         id  : 'img_8',
-        src : '../img/slide2.jpg'
+        src : '/img/slide2.jpg'
     },
     {
         id  : 'img_9',
-        src : '../img/slide3.jpg'
+        src : '/img/slide3.jpg'
     },
     {
         id  : 'img_10',
-        src : '../img/slide4.jpg'
+        src : './img/slide4.jpg'
     },
     {
         id  : 'img_11',
-        src : '../img/slide5.jpg'
+        src : '/img/slide5.jpg'
     },
     {
         id  : 'img_12',
-        src : '../img/slide6.jpg'
+        src : '/img/slide6.jpg'
     }
 ]
 
