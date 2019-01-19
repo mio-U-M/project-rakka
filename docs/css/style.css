@@ -44,6 +44,17 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
+@-webkit-keyframes showAndHide {
+  0%, 100% {
+    opacity: 0; }
+  40%, 60% {
+    opacity: 1; } }
+@keyframes showAndHide {
+  0%, 100% {
+    opacity: 0; }
+  40%, 60% {
+    opacity: 1; } }
+
 body {
   -webkit-text-size-adjust: 100%;
           text-size-adjust: 100%; }
