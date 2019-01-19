@@ -5,45 +5,30 @@
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    filter: none;
-
-    &[data-color="true"] {
-        filter: grayscale(10);
-    }
-
-    &[data-hide="true"] {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
 }
 
 .opening-ttlarea {
     @include absCenter;
     width: 40%;
     height: 40%;
-
-    &[data-hide="true"] {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
 }
 
 .opening-ttl {
    text-align: center;
+   font-family: $font-main;
    font-size: 70px;
    span {
        opacity: 0;
        display: block;
        transform: scale(2.0);
    }
-
 }
 
 .opening-subttl {
-    opacity: 0;
+    margin-top: 20px;
     text-align: center;
+    font-family: $font-main;
     font-size: 35px;
     transform: scale(1.5);
+    opacity: 0;
 }

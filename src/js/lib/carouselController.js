@@ -1,9 +1,12 @@
 import TweenMax from "gsap/TweenMax";
 import slideController from "@/js/lib/slideController";
 import { ANIMATION_CONFIG } from "@/js/lib/constant.js";
+import EventEmitter from 'events';
 
-export default class carouselController {
+export default class carouselController extends EventEmitter {
     constructor() {
+        super();
+
         this.carousel = {
             prevbtn: document.querySelector(".js-prev"),
             nextbtn: document.querySelector(".js-next")
@@ -19,8 +22,17 @@ export default class carouselController {
 
     init() {
         // スライドをセット
-        Array.from(document.querySelectorAll(".js-slide"), elm => {
+        Array.from(document.querySelectorAll(".js-slide"), (elm, index) => {
             return this.slides.push(new slideController(elm));
+        });
+        Array.from(document.querySelectorAll(".js-slidecontainer"), (elm, index) => {
+            elm.addEventListener("mouseenter", () => {
+                this.emit('hover');
+            });
+            elm.addEventListener("mouseleave", () => {
+                this.emit('hoverout');
+            });
+            return;
         });
         // 初期表示するスライドを設定
         this.slides[this.currentSlide].initCurent();

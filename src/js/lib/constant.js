@@ -1,4 +1,4 @@
 export const ANIMATION_CONFIG = {
-    duration: 0.6,
+    duration: 1.0,
     ease: Expo.easeOut
 };
