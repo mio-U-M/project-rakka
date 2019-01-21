@@ -59,10 +59,8 @@ class PreloadManager extends EventEmitter {
         super();
 
         // ローディング画面用のDOM
-        // this.preloadDom = document.querySelector('.js-preload');
-        // // 進行状況を示すDOM
-        // this.percentDom = document.querySelector('.js-meter');
-
+        this.loadingDom = document.querySelector('.js-loading');
+       
         this.queue = new createjs.LoadQueue(false);
 
         this.queue.setMaxConnections(6);
@@ -87,17 +85,17 @@ class PreloadManager extends EventEmitter {
     }
    
     handleComplete() {
-        this.emit('complete');
-        // TweenMax.to(
-        //     this.preloadDom,
-        //     2.0,
-        //     { 
-        //         opacity: 0,
-        //         onComplete: () => {
-        //            this.preloadDom.setAttribute('data-hide','true');
-        //         }
-        //     }
-        // )
+        TweenMax.to(
+            this.loadingDom,
+            1.0,
+            { 
+                opacity: 0,
+                onComplete: () => {
+                   this.loadingDom.setAttribute('data-hide','true');
+                   this.emit('complete');
+                }
+            }
+        )
     }
 }
 
