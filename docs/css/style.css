@@ -45,12 +45,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 @-webkit-keyframes showAndHide {
-  0%, 100% {
+  0%, 10%, 90%, 100% {
     opacity: 0; }
   40%, 60% {
     opacity: 1; } }
 @keyframes showAndHide {
-  0%, 100% {
+  0%, 10%, 90%, 100% {
     opacity: 0; }
   40%, 60% {
     opacity: 1; } }
@@ -275,6 +275,57 @@ main {
     opacity: 1;
     transition: opacity .3s ease-out; }
 
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Hannari", serif;
+  background: #000;
+  color: #fff;
+  opacity: 1; }
+  .loading[data-hide="true"] {
+    opacity: 0;
+    pointer-events: none; }
+  .loading .loading-txt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    font-size: 30px;
+    color: #fff; }
+    .loading .loading-txt span {
+      font-size: 18px;
+      margin: 0 10px;
+      opacity: 0; }
+      .loading .loading-txt span:nth-child(1) {
+        -webkit-animation: showAndHide 2.3s ease 0.1s infinite;
+                animation: showAndHide 2.3s ease 0.1s infinite; }
+      .loading .loading-txt span:nth-child(2) {
+        -webkit-animation: showAndHide 2.3s ease 0.2s infinite;
+                animation: showAndHide 2.3s ease 0.2s infinite; }
+      .loading .loading-txt span:nth-child(3) {
+        -webkit-animation: showAndHide 2.3s ease 0.3s infinite;
+                animation: showAndHide 2.3s ease 0.3s infinite; }
+      .loading .loading-txt span:nth-child(4) {
+        -webkit-animation: showAndHide 2.3s ease 0.4s infinite;
+                animation: showAndHide 2.3s ease 0.4s infinite; }
+      .loading .loading-txt span:nth-child(5) {
+        -webkit-animation: showAndHide 2.3s ease 0.5s infinite;
+                animation: showAndHide 2.3s ease 0.5s infinite; }
+      .loading .loading-txt span:nth-child(6) {
+        -webkit-animation: showAndHide 2.3s ease 0.6s infinite;
+                animation: showAndHide 2.3s ease 0.6s infinite; }
+      .loading .loading-txt span:nth-child(7) {
+        -webkit-animation: showAndHide 2.3s ease 0.7s infinite;
+                animation: showAndHide 2.3s ease 0.7s infinite; }
+
 .modal {
   position: fixed;
   top: 0;
@@ -359,17 +410,17 @@ main {
   background-position: center;
   background-size: contain; }
   .modal-previewimg[data-img="1"] {
-    background-image: url("/img/img1.jpg"); }
+    background-image: url("../img/img1.jpg"); }
   .modal-previewimg[data-img="2"] {
-    background-image: url("/img/img2.jpg"); }
+    background-image: url("../img/img2.jpg"); }
   .modal-previewimg[data-img="3"] {
-    background-image: url("/img/img3.jpg"); }
+    background-image: url("../img/img3.jpg"); }
   .modal-previewimg[data-img="4"] {
-    background-image: url("/img/img4.jpg"); }
+    background-image: url("../img/img4.jpg"); }
   .modal-previewimg[data-img="5"] {
-    background-image: url("/img/img5.jpg"); }
+    background-image: url("../img/img5.jpg"); }
   .modal-previewimg[data-img="6"] {
-    background-image: url("/img/img6.jpg"); }
+    background-image: url("../img/img6.jpg"); }
 
 .about {
   opacity: 0;
