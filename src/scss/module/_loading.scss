@@ -22,10 +22,14 @@
         font-size: 30px;
         color: #fff;
 
-        @for $i from 1 through 7 {
-            span {
-                opacity: 0;
-                animation: showAndHide 1.5s ease-out #{0.2 * $i}s;
+        span {
+            font-size: 18px;
+            margin: 0 10px;
+            opacity: 0;
+             @for $i from 1 through 7 {
+                &:nth-child(#{$i}) {
+                    animation: showAndHide 2.3s ease #{$i * 0.1}s infinite;
+                }
             }
         }
     }
