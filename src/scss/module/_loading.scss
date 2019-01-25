@@ -7,15 +7,29 @@
     font-family: $font-main;
     background: #000;
     color: #fff;
+    opacity: 1;
+
+    &[data-hide="true"] {
+        opacity: 0;
+        pointer-events: none;
+    }
 
     .loading-txt {
         @include absCenter;
+        width: 100%;
+        height: 40px;
+        text-align: center;
         font-size: 30px;
+        color: #fff;
 
-        @for $i from 1 through 7 {
-            span {
-                opacity: 0;
-                animation: showAndHide 2.0s ease-out (0 + 0.1 * #{$i})s;
+        span {
+            font-size: 18px;
+            margin: 0 10px;
+            opacity: 0;
+             @for $i from 1 through 7 {
+                &:nth-child(#{$i}) {
+                    animation: showAndHide 2.3s ease #{$i * 0.1}s infinite;
+                }
             }
         }
     }
