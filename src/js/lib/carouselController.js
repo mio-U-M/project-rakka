@@ -27,7 +27,7 @@ export default class carouselController extends EventEmitter {
         });
         Array.from(document.querySelectorAll(".js-slidecontainer"), (elm, index) => {
             elm.addEventListener("mouseenter", () => {
-                this.emit('hover');
+                this.emit('hover', index);
             });
             elm.addEventListener("mouseleave", () => {
                 this.emit('hoverout');

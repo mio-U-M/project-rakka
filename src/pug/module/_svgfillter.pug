@@ -1,0 +1,33 @@
+
+mixin svgfillter
+  svg(style="position: absolute; top: -99999px" xmlns="http://www.w3.org/2000/svg")
+    filter(id="skyblue")
+      feComponentTransfer
+        feFuncR(type="linear" slope="1.5" intercept="-0.5")
+        feFuncG(type="linear" slope="1.5" intercept="0.2")
+        feFuncB(type="linear" slope="1.5" intercept="1")
+    filter(id="purple")
+      feComponentTransfer
+        feFuncG(type="linear" slope="1.0" intercept="0.0")
+        feFuncB(type="linear" slope="1.0" intercept="0.8")
+        feFuncR(type="linear" slope="1.0" intercept="0.8")
+    filter(id="green")
+      feComponentTransfer
+        feFuncR(type="linear" slope="1.0" intercept="0.0")
+        feFuncG(type="linear" slope="1.0" intercept="1.0")
+        feFuncB(type="linear" slope="1.0" intercept="0.0")
+    filter(id="red")
+      feComponentTransfer
+        feFuncR(type="linear" slope="1.0" intercept="1.0")
+        feFuncB(type="linear" slope="1.0" intercept="0.0")
+        feFuncR(type="linear" slope="1.0" intercept="1.0")
+    filter(id="blue")
+      feComponentTransfer
+        feFuncR(type="linear" slope="1.0" intercept="0.0")
+        feFuncG(type="linear" slope="1.0" intercept="0.0")
+        feFuncB(type="linear" slope="1.0" intercept="1.0")
+    filter(id="yellow")
+      feComponentTransfer
+        feFuncR(type="linear" slope="1.0" intercept="0.9")
+        feFuncG(type="linear" slope="1.0" intercept="0.8")
+        feFuncB(type="linear" slope="1.0" intercept="0.0")

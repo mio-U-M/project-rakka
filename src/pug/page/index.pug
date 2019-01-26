@@ -1,5 +1,7 @@
 extends /layout/_default-layout
 
+include /module/_svgfillter
+
 prepend config-block
   - page_name = ''
 
@@ -17,6 +19,8 @@ block content-block
           span.js-openingttl2 花
         h2.opening-subttl.js-openingsubttl
           span -fall down flowers-
+    .hoverlayer.js-hoverlayer
+      +svgfillter
     .contents.js-contents
       .carousel.js-carousel
         each val, index in slidelist
