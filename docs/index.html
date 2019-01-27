@@ -135,6 +135,52 @@
             <h2 class="opening-subttl js-openingsubttl"><span>-fall down flowers-</span></h2>
           </div>
         </div>
+        <div class="hoverlayer js-hoverlayer">
+          <svg style="position: absolute; top: -99999px" xmlns="http://www.w3.org/2000/svg">
+            <filter id="skyblue">
+              <feComponentTransfer>
+                <feFuncR type="linear" slope="1.5" intercept="-0.5"></feFuncR>
+                <feFuncG type="linear" slope="1.5" intercept="0.2"></feFuncG>
+                <feFuncB type="linear" slope="1.5" intercept="1"></feFuncB>
+              </feComponentTransfer>
+            </filter>
+            <filter id="purple">
+              <feComponentTransfer>
+                <feFuncG type="linear" slope="1.0" intercept="0.0"></feFuncG>
+                <feFuncB type="linear" slope="1.0" intercept="0.8"></feFuncB>
+                <feFuncR type="linear" slope="1.0" intercept="0.8"></feFuncR>
+              </feComponentTransfer>
+            </filter>
+            <filter id="green">
+              <feComponentTransfer>
+                <feFuncR type="linear" slope="1.0" intercept="0.0"></feFuncR>
+                <feFuncG type="linear" slope="1.0" intercept="1.0"></feFuncG>
+                <feFuncB type="linear" slope="1.0" intercept="0.0"></feFuncB>
+              </feComponentTransfer>
+            </filter>
+            <filter id="red">
+              <feComponentTransfer>
+                <feFuncR type="linear" slope="1.0" intercept="1.0"></feFuncR>
+                <feFuncB type="linear" slope="1.0" intercept="0.0"></feFuncB>
+                <feFuncR type="linear" slope="1.0" intercept="1.0"></feFuncR>
+              </feComponentTransfer>
+            </filter>
+            <filter id="blue">
+              <feComponentTransfer>
+                <feFuncR type="linear" slope="1.0" intercept="0.0"></feFuncR>
+                <feFuncG type="linear" slope="1.0" intercept="0.0"></feFuncG>
+                <feFuncB type="linear" slope="1.0" intercept="1.0"></feFuncB>
+              </feComponentTransfer>
+            </filter>
+            <filter id="yellow">
+              <feComponentTransfer>
+                <feFuncR type="linear" slope="1.0" intercept="0.9"></feFuncR>
+                <feFuncG type="linear" slope="1.0" intercept="0.8"></feFuncG>
+                <feFuncB type="linear" slope="1.0" intercept="0.0"></feFuncB>
+              </feComponentTransfer>
+            </filter>
+          </svg>
+        </div>
         <div class="contents js-contents">
           <div class="carousel js-carousel">
             <div class="carousel-slide js-slide" data-slide="0">
@@ -142,7 +188,7 @@
                 <div class="slide-img" style="background-image:url('./img/slide1.jpg')"></div>
                 <div class="slide-cover js-slidecover"></div>
               </div>
-              <h1 class="slide-ttl" data-color="sb">
+              <h1 class="slide-ttl js-slidettl" data-color="sb">
                 <p class="js-slideno">#01</p>
                 <p class="js-slidettl">Skyblue/Emotional</p>
               </h1>
@@ -152,7 +198,7 @@
                 <div class="slide-img" style="background-image:url('./img/slide2.jpg')"></div>
                 <div class="slide-cover js-slidecover"></div>
               </div>
-              <h1 class="slide-ttl" data-color="pp">
+              <h1 class="slide-ttl js-slidettl" data-color="pp">
                 <p class="js-slideno">#02</p>
                 <p class="js-slidettl">Purple/Radical</p>
               </h1>
@@ -162,7 +208,7 @@
                 <div class="slide-img" style="background-image:url('./img/slide3.jpg')"></div>
                 <div class="slide-cover js-slidecover"></div>
               </div>
-              <h1 class="slide-ttl" data-color="gr">
+              <h1 class="slide-ttl js-slidettl" data-color="gr">
                 <p class="js-slideno">#03</p>
                 <p class="js-slidettl">Green/Philosophical</p>
               </h1>
@@ -172,7 +218,7 @@
                 <div class="slide-img" style="background-image:url('./img/slide4.jpg')"></div>
                 <div class="slide-cover js-slidecover"></div>
               </div>
-              <h1 class="slide-ttl" data-color="rd">
+              <h1 class="slide-ttl js-slidettl" data-color="rd">
                 <p class="js-slideno">#04</p>
                 <p class="js-slidettl">Red/Potential</p>
               </h1>
@@ -182,7 +228,7 @@
                 <div class="slide-img" style="background-image:url('./img/slide5.jpg')"></div>
                 <div class="slide-cover js-slidecover"></div>
               </div>
-              <h1 class="slide-ttl" data-color="bl">
+              <h1 class="slide-ttl js-slidettl" data-color="bl">
                 <p class="js-slideno">#05</p>
                 <p class="js-slidettl">Blue/Transcendental</p>
               </h1>
@@ -192,7 +238,7 @@
                 <div class="slide-img" style="background-image:url('./img/slide6.jpg')"></div>
                 <div class="slide-cover js-slidecover"></div>
               </div>
-              <h1 class="slide-ttl" data-color="yl">
+              <h1 class="slide-ttl js-slidettl" data-color="yl">
                 <p class="js-slideno">#06</p>
                 <p class="js-slidettl">Yellow/Suggestive</p>
               </h1>
@@ -206,7 +252,9 @@
           </div>
           <header>
             <h1 class="header-ttl">落花<span>-fall down flowers-</span></h1>
-            <div class="header-about"></div>
+            <div class="header-about">
+              <button>About</button>
+            </div>
           </header>
           <footer><small>© 2018 MIO</small></footer>
           <!-- - modal-->
@@ -215,15 +263,25 @@
               <div class="modal-previewtxt">
                 <h2 class="modal-no js-modalno">#01</h2>
                 <h1 class="modal-ttl js-modalttl">Color/DummyTitle</h1>
+                <div class="modal-link"><a class="js-modallink" href="#">Instagram</a>
+                  <div class="modal-linkcover"></div>
+                </div>
                 <div class="modal-txtarea">
                   <p class="modal-txt js-modaltxt"> </p>
-                </div><a class="modal-link js-modallink" href="#">Instagram</a>
+                  <div class="modal-txtcover"></div>
+                </div>
                 <div class="modal-close">
                   <button class="js-modalclose">CLOSE</button>
                 </div>
               </div>
               <div class="modal-previewimg js-modalimg"></div>
             </div><span></span><span></span>
+          </div>
+          <div class="about js-about">
+            <div class="about-container">
+              <h2 class="about-ttl">About</h2>
+              <p class="about-txt">This site is for illustration by MIO, which</p>
+            </div>
           </div>
         </div>
         <div class="loading js-loading">
