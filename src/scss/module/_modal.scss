@@ -65,12 +65,23 @@
 .modal-container {
     @include absCenter;
     width: 90%;
-    height: 90%;
     display: flex;
     justify-content: space-evenly;
     background: #fff;
 
     @include pcLayout {
+        height: 90%;
+        // min-width: 1080px;
+        min-height: 690px;
+    }
+
+    @include spLayout {
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        margin: 15px auto;
+        padding: 10px 5px;
+        overflow: scroll;
         // min-width: 1080px;
         // min-height: 690px;
     }
@@ -78,7 +89,12 @@
 
 .modal-previewtxt {
     width: 40%;
-    margin: auto 0;
+    margin: 20px 10px;
+
+    @include spLayout {
+        width: 100%;
+        order: 2;
+    }
 }
 
 .modal-no {
@@ -222,5 +238,11 @@
         &[data-img="#{$i}"] {
             background-image: image-url("img#{$i}.jpg");
         }
+    }
+
+    @include spLayout {
+        width: 100%;
+        height: 70%;
+        order: 1;
     }
 }
