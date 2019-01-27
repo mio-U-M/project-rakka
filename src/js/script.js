@@ -20,15 +20,40 @@ let filterelm3 = { val: 30 };
 
 // carousel init
 const carousel = new carouselController(document.querySelector(".js-carousel"));
-carousel.on('hover', () => {
+carousel.on('hover', (index) => {
+    let color = null;
+
+    switch (index) {
+        case 0:
+            color = "skyblue";
+            break;
+        case 1:
+            color = "purple";
+            break;
+        case 2:
+            color = "green";
+            break;
+        case 3:
+            color = "red";
+            break;
+        case 4:
+            color = "blue";
+            break;
+        case 5:
+            color = "yellow";
+            break;
+        default:
+            break;
+    }
+
     TweenMax.to(filterelm0, 0.4,
         {
-            val: 0,
+            val: 10,
             ease: Power4.easeOut,
             onUpdate: () => 
             TweenMax.set(opening, { 
-                webkitFilter: "grayscale(" + filterelm0.val + ")",
-                filter:"grayscale(" +  filterelm0.val + ")"}
+                webkitFilter: "grayscale(" + filterelm0.val + ") url(#" + color + ")",
+                filter:"grayscale(" +  filterelm0.val + ") url(#" + color + ")"}
             )
         }
     )
