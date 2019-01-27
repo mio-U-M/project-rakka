@@ -28,7 +28,7 @@ block content-block
             .slide-container.js-slidecontainer
               .slide-img(style=`background-image:url('./img/slide${val.no}.jpg')`)
               .slide-cover.js-slidecover
-            h1.slide-ttl(data-color=val.colorid)
+            h1.slide-ttl(data-color=val.colorid).js-slidettl
               p(class="js-slideno")="#0" + val.no
               p(class="js-slidettl")=val.title
       .carousel-prev
@@ -39,7 +39,7 @@ block content-block
         h1.header-ttl 落花
           span -fall down flowers-
         .header-about
-          //- button About
+          button About
       footer
         small © 2018 MIO
       // - modal
@@ -48,18 +48,21 @@ block content-block
           .modal-previewtxt
             h2.modal-no.js-modalno #01
             h1.modal-ttl.js-modalttl Color/DummyTitle
+            .modal-link
+              a(href="#").js-modallink Instagram
+              .modal-linkcover
             .modal-txtarea
               p.modal-txt.js-modaltxt 
-            a(href="#").modal-link.js-modallink Instagram
+              .modal-txtcover
             .modal-close
               button.js-modalclose CLOSE
           .modal-previewimg.js-modalimg
         span
         span
-      //- .about.js-about
-      //-   .about-container
-      //-     h2.about-ttl About
-      //-     p.about-txt This site is for illustration by MIO, which
+      .about.js-about
+        .about-container
+          h2.about-ttl About
+          p.about-txt This site is for illustration by MIO, which
     .loading.js-loading
       p.loading-txt
         span L

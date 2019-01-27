@@ -8,13 +8,57 @@
     visibility: hidden;
     pointer-events: none;
     background: rgba($color: #fff, $alpha: 0.7);
-    transition: opacity 1.0s ease-out;
+    transition: opacity 0.7s ease-out;
 
     &[data-show="true"] {
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
-        transition: opacity 1.0s ease-out;
+        transition: opacity 0.7s ease-out;
+
+        .modal-no {
+            opacity: 1;
+            transform: translateY(0%);
+            transition: all 0.5s ease-out 1.0s;
+        }
+
+        .modal-ttl {
+            opacity: 1;
+            filter: blur(0px);
+            transition: all 0.7s ease-out 1.6s;
+        }
+
+        .modal-link {
+            opacity: 1;
+            transition: all 0.6s ease-out 1.0s;
+        }
+
+        .modal-linkcover {
+            transform: translateX(100%);
+            transition: transform 0.6s ease-out 1.1s;
+        }
+
+        .modal-txtcover {
+            transform: translateX(100%);
+            transition: transform 0.6s ease-out 1.3s;
+        }
+
+        .modal-txt {
+            opacity: 1;
+            transition: all 0.6s ease-out 1.4s;
+        }        
+
+        .modal-close {
+            transform: translateY(0%);
+            opacity: 1;
+            transition: all 0.6s ease-in 1.7s;
+        }
+
+        .modal-previewimg {
+            opacity: 1;
+            filter: blur(0px);
+            transition: all 0.8s ease-out 0.3s;
+        }
     }
 }
 
@@ -37,36 +81,98 @@
     margin: auto 0;
 }
 
-.modal-txtarea {
-    margin: 20px 0;
+.modal-no {
+    font-size: 25px;
+    letter-spacing: -1px;
+    opacity: 0;
+    transform: translateY(-100%);
 }
 
 .modal-ttl {
     font-family: $font-main;
-    font-size: 30px;
+    font-size: 36px;
+    margin-top: 5px;
+    opacity: 0;
+    filter: blur(30px);
+}
+
+.modal-txtarea {
+    position: relative;
+    margin: 15px 0;
+    overflow: hidden;
 }
 
 .modal-txt {
     margin: 0 auto;
+    opacity: 0;
+}
+
+.modal-txtcover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    transform: translateX(0);
 }
 
 .modal-link {
-    margin-top: 10px;
-    text-align: center;
-    text-shadow: none;
-    transition: text-shadow .6s ease-out;
+    position: relative;
+    margin-top: 15px;
+    opacity: 0;
+    overflow: hidden;
 
-    &:hover {
+    a {
+        font-size: 21px;
+        text-align: center;
+        text-shadow: none;
         transition: text-shadow .6s ease-out;
-        text-shadow:2px 2px 0px #c5c5c5;
+
+        &[data-color="sb"] {
+            color: $color-skyblue;
+        }
+        &[data-color="pp"] {
+            color: $color-purple;
+        }
+        &[data-color="gr"] {
+            color: $color-green;
+        }
+        &[data-color="rd"] {
+            color: $color-red;
+        }
+        &[data-color="bl"] {
+            color: $color-blue;
+        }
+        &[data-color="yl"] {
+            color: $color-yellow;
+        }
+
+        &:hover {
+            transition: text-shadow .6s ease-out;
+            text-shadow:2px 2px 0px #c5c5c5;
+        }
     }
 }
 
+.modal-linkcover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    transform: translateX(0);
+}
+
 .modal-close {
+    margin-top: 30px;
+    transform: translateY(20%);
+    opacity: 0;
+
     button {
         @include formStyleReset;
         display: inline-block;
-        margin-top: 30px;
         padding: 8px 24px;
         width: 150px;
         border: 1px solid #000;
@@ -74,11 +180,32 @@
         font-size: 16px;
         text-align: center;
         text-shadow: none;
+        overflow: hidden;
         transition: opacity .6s ease-out;
 
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 150px;
+            height: 100%;
+            background: #000;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .3s ease-out;
+        }
+
         &:hover {
-            transition: opacity .6s ease-out;
-            opacity: 0.5;
+            color: #fff;
+            transition: color .3s ease-out;
+
+            &:after {
+                transform: scaleX(1);
+                transform-origin: left;
+                transition: transform .3s ease-out;
+            }
         }
     }
 }
@@ -88,6 +215,8 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    opacity: 0;
+    filter: blur(20px);
 
     @for $i from 1 through 6 {
         &[data-img="#{$i}"] {

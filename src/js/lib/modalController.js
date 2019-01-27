@@ -13,15 +13,15 @@ class modalController {
         this.slidedata = null;
     }
 
-    openModal(slideid) {
+    openModal(slideid, colorid) {
         this.slidedata = slidelist[slideid];
 
         this.modal.no.innerHTML = "#0" + this.slidedata.no;
         this.modal.ttl.innerHTML = this.slidedata.title;
         this.modal.txt.innerHTML = this.slidedata.explain.replace(/\n/g, '<br />');
         this.modal.link.href = this.slidedata.instagramlink;
+        this.modal.link.setAttribute("data-color",colorid);
         this.modal.img.setAttribute("data-img",this.slidedata.no);
-        
         this.modal.elm.setAttribute("data-show","true");
     }
 

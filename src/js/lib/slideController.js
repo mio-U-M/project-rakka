@@ -7,6 +7,7 @@ export default class slideController {
         this.slide = {
             elm: elm,
             id: elm.getAttribute("data-slide"),
+            colorid: elm.querySelector(".js-slidettl").getAttribute("data-color"),
             container: elm.querySelector(".js-slidecontainer"),
             cover: elm.querySelector(".js-slidecover"),
             no: elm.querySelector(".js-slideno"),
@@ -126,7 +127,7 @@ export default class slideController {
             startAt: { scale: 1.0 },
         };
 
-        Modal.openModal(this.slide.id);
+        Modal.openModal(this.slide.id, this.slide.colorid);
         TweenMax.to(this.slide.container, ANIMATION_CONFIG.duration, this.openAnimOpts);
     }
 
