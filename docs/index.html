@@ -19,8 +19,6 @@
     <meta property="twitter:card" content="summary">
     <meta property="twitter:title" content="project-rakka">
     <meta property="twitter:description" content="project-rakka web page.">
-    <!-- stylesheet-->
-    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
     <script src="./js/three.min.js"></script>
     <script id="vertexShader" type="x-shader/x-vertex">
       void main() {
@@ -253,7 +251,7 @@
           <header>
             <h1 class="header-ttl">落花<span>-fall down flowers-</span></h1>
             <div class="header-about">
-              <button>About</button>
+              <button class="js-aboutbtn">About</button>
             </div>
           </header>
           <footer><small>© 2018 MIO</small></footer>
@@ -263,7 +261,7 @@
               <div class="modal-previewtxt">
                 <h2 class="modal-no js-modalno">#01</h2>
                 <h1 class="modal-ttl js-modalttl">Color/DummyTitle</h1>
-                <div class="modal-link"><a class="js-modallink" href="#">Instagram</a>
+                <div class="modal-link"><a class="js-modallink" href="#" target="_blank">Instagram</a>
                   <div class="modal-linkcover"></div>
                 </div>
                 <div class="modal-txtarea">
@@ -271,7 +269,7 @@
                   <div class="modal-txtcover"></div>
                 </div>
                 <div class="modal-close">
-                  <button class="js-modalclose">CLOSE</button>
+                  <button class="js-modalclose">CLOSE  </button>
                 </div>
               </div>
               <div class="modal-previewimg js-modalimg"></div>
@@ -280,12 +278,18 @@
           <div class="about js-about">
             <div class="about-container">
               <h2 class="about-ttl">About</h2>
-              <p class="about-txt">This site is for illustration by MIO, which</p>
+              <p class="about-txt">This site is for a series of illustration by drawn MIO. I created this site with considering how to make these paintings looks more glamorous.<br>Hope you feel something from this site, if so, that will beHope you feel something from this site, if so, that will contribute my motivation.<br><br><br>このサイトは個人的に描きためたとある連作イラストのためのサイトです。<br>どうやったらWebサイト上でイラストがより映えるように見えるのか・・・という試行錯誤をサイトを作る上でやっていきたいなという思いのもと、<br>今自分ができる表現を詰め込んだサイトになりました。<br>未熟なところはまだまだありますが、見る人にとって何か感じるものがあれば私にとってこの上ない喜びです。<br><br>Web Design / Web development / Illustration : MIO<br>Special Thanks : Codrops, h_doxas, GLSL school</p>
+              <div class="about-close">
+                <button class="js-aboutclose">CLOSE</button>
+              </div>
             </div>
           </div>
         </div>
         <div class="loading js-loading">
           <p class="loading-txt"><span>L</span><span>o</span><span>a</span><span>d</span><span>i</span><span>n</span><span>g</span></p>
+        </div>
+        <div class="pccheck">
+          <p class="pccheck-txt">Sorry, pleease access this site from PC.</p>
         </div>
       </main>
     </div>
