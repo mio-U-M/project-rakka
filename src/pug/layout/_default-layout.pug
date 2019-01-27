@@ -59,10 +59,6 @@ html(lang="ja")
       //- wwwやhttps、getパラメータなど、微妙に違うURLでアクセスされても、使われるURLをひとつに絞れる
       link(rel="canonical" href=meta.url)
 
-    // stylesheet
-    block stylesheet-block
-      link(href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet")
-    
     block javascript-block
       script(src="js/three.min.js")
       script(id="vertexShader" type="x-shader/x-vertex").

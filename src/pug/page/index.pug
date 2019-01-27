@@ -39,7 +39,7 @@ block content-block
         h1.header-ttl 落花
           span -fall down flowers-
         .header-about
-          button About
+          button.js-aboutbtn About
       footer
         small © 2018 MIO
       // - modal
@@ -49,20 +49,42 @@ block content-block
             h2.modal-no.js-modalno #01
             h1.modal-ttl.js-modalttl Color/DummyTitle
             .modal-link
-              a(href="#").js-modallink Instagram
+              a(href="#" target="_blank").js-modallink Instagram
               .modal-linkcover
             .modal-txtarea
               p.modal-txt.js-modaltxt 
               .modal-txtcover
             .modal-close
-              button.js-modalclose CLOSE
+              button.js-modalclose CLOSE  
           .modal-previewimg.js-modalimg
         span
         span
       .about.js-about
         .about-container
           h2.about-ttl About
-          p.about-txt This site is for illustration by MIO, which
+          p.about-txt This site is for a series of illustration by drawn MIO. I created this site with considering how to make these paintings looks more glamorous.
+            br
+            | Hope you feel something from this site, if so, that will beHope you feel something from this site, if so, that will contribute my motivation.
+            br
+            |
+            br
+            |
+            br
+            | このサイトは個人的に描きためたとある連作イラストのためのサイトです。
+            br
+            | どうやったらWebサイト上でイラストがより映えるように見えるのか・・・という試行錯誤をサイトを作る上でやっていきたいなという思いのもと、
+            br
+            | 今自分ができる表現を詰め込んだサイトになりました。
+            br
+            | 未熟なところはまだまだありますが、見る人にとって何か感じるものがあれば私にとってこの上ない喜びです。
+            br
+            |
+            br
+            | Web Design / Web development / Illustration : MIO
+            br
+            | Special Thanks : Codrops, h_doxas, GLSL school
+          .about-close
+              button.js-aboutclose CLOSE
     .loading.js-loading
       p.loading-txt
         span L
@@ -72,4 +94,7 @@ block content-block
         span i
         span n
         span g
+    .pccheck
+      p.pccheck-txt Sorry, pleease access this site from PC.
+
     

@@ -4,6 +4,7 @@ import carouselController from "@/js/lib/carouselController";
 import { shaderinit } from "@/js/lib/shaderController.js";
 import { TweenMax, TimelineMax } from "gsap/TweenMax";
 import Preloader from '@/js/lib/preloadManager.js';
+import About from '@/js/lib/aboutController.js';
 import EventEmitter from 'events';
 
 const opening = document.querySelector(".js-opening");
@@ -17,6 +18,9 @@ let filterelm0 = { val: 10 };
 let filterelm1 = { val: 30 };
 let filterelm2 = { val: 30 };
 let filterelm3 = { val: 30 };
+
+// about init
+About.init();
 
 // carousel init
 const carousel = new carouselController(document.querySelector(".js-carousel"));

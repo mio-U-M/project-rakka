@@ -89,9 +89,10 @@
 
 .modal-previewtxt {
     width: 40%;
-    margin: 20px 10px;
+    margin: auto 10px;
 
     @include spLayout {
+        margin: 20px 10px;
         width: 100%;
         order: 2;
     }
@@ -197,7 +198,6 @@
         text-align: center;
         text-shadow: none;
         overflow: hidden;
-        transition: opacity .6s ease-out;
 
         &:after {
             content: '';
