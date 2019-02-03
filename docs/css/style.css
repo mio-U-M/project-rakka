@@ -57,8 +57,7 @@ table {
 
 body {
   -webkit-text-size-adjust: 100%;
-          text-size-adjust: 100%;
-  font-size: calc(100vw / 32); }
+          text-size-adjust: 100%; }
 
 a {
   text-decoration: none;
@@ -87,7 +86,6 @@ header {
 .header-ttl {
   flex-basis: 50%;
   padding: 0 20px;
-  font-family: "YuMincho", "Yu Mincho", "MS Mincho", serif;
   font-size: 30px;
   text-align: left; }
   .header-ttl span {
@@ -231,7 +229,7 @@ main {
       font-size: 2.2rem;
       opacity: 0; }
     .slide-ttl p:nth-of-type(2) {
-      font-size: 4.6rem;
+      font-size: 4.2rem;
       opacity: 0; }
 
 .carousel-prev,
@@ -257,14 +255,14 @@ main {
     width: 100%;
     height: 100%;
     font-family: "YuMincho", "Yu Mincho", "MS Mincho", serif;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-family: "YuMincho", "Yu Mincho", "MS Mincho", serif; }
 
 .carousel-prev {
-  left: 30px; }
+  left: 20px; }
 
 .carousel-next {
-  right: 30px; }
+  right: 20px; }
 
 .curent-slide {
   pointer-events: auto;
@@ -279,28 +277,6 @@ main {
   .curent-slide .slide-ttl p:nth-of-type(2) {
     opacity: 1;
     transition: opacity .3s ease-out; }
-
-.pccheck {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000; }
-
-.pccheck-txt {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  color: #fff;
-  font-family: "YuMincho", "Yu Mincho", "MS Mincho", serif; }
 
 .loading {
   position: absolute;
@@ -727,42 +703,42 @@ small {
           transform: scale(1.5);
   opacity: 0; }
 
-@media (min-width: 800px) {
+@media (min-width: 750px) {
   .sp-only {
     display: none; }
     .modal-container {
       height: 90%;
       min-height: 690px; } }
 
-@media (max-width: 799px) {
+@media (max-width: 749px) {
   .pc-only {
     display: none; }
     .header-ttl {
+      font-size: 1.4rem;
       flex-basis: 80%; }
       .header-ttl span {
-        font-size: 16px;
+        font-size: 1rem;
         padding: 8px; }
     .header-about {
-      flex-basis: 20%;
-      padding: 10px 20px 0; }
+      flex-basis: 20%; }
       .header-about button {
-        font-size: 18px; }
-    .slide-ttl p:nth-of-type(1) {
-      font-size: 1.8rem; }
-    .slide-ttl p:nth-of-type(2) {
-      font-size: 2.2rem; }
+        font-size: 1.1rem; }
+    .slide-ttl {
+      height: 25vh; }
+      .slide-ttl p:nth-of-type(1) {
+        font-size: 1.8rem; }
+      .slide-ttl p:nth-of-type(2) {
+        font-size: 2.1rem; }
     .carousel-prev,
     .carousel-next {
       top: 45%; }
       .carousel-prev button,
       .carousel-next button {
-        text-shadow: 2px 2px 5px #ddd; }
+        text-shadow: 2px 2px 1px #ccc; }
     .carousel-prev {
       left: 12px; }
     .carousel-next {
       right: 12px; }
-    .pccheck {
-      display: block; }
     .modal-container {
       justify-content: center;
       flex-wrap: wrap;
@@ -774,9 +750,23 @@ small {
       margin: 20px 10px;
       width: 100%;
       order: 2; }
+    .modal-no {
+      font-size: 1.3rem; }
+    .modal-ttl {
+      font-size: 1.8rem; }
     .modal-previewimg {
       width: 100%;
       height: 70%;
       order: 1; }
+    .about-container {
+      overflow: scroll; }
+    .about-txt {
+      margin: 30px 0; }
+    small {
+      font-size: 0.8rem; }
     .opening-ttlarea {
-      width: 100%; } }
+      width: 100%; }
+    .opening-ttl {
+      font-size: 4rem; }
+    .opening-subttl {
+      font-size: 1.5rem; } }
