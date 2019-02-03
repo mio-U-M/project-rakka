@@ -4,6 +4,7 @@ class modalController {
     constructor() {
         this.modal = {
             elm : document.querySelector(".js-modal"),
+            container : document.querySelector(".js-modalcontainer"),
             no : document.querySelector(".js-modalno"),
             ttl: document.querySelector(".js-modalttl"),
             txt : document.querySelector(".js-modaltxt"),
@@ -22,6 +23,7 @@ class modalController {
         this.modal.link.href = this.slidedata.instagramlink;
         this.modal.link.setAttribute("data-color",colorid);
         this.modal.img.setAttribute("data-img",this.slidedata.no);
+        this.modal.container.scrollTo(0, 0);
         this.modal.elm.setAttribute("data-show","true");
     }
 

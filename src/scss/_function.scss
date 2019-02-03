@@ -2,3 +2,8 @@
 @function image-url ($url) {
     @return url("/img/#{$url}");
 }
+
+@function getVw($size, $viewport:320){
+    $rate: 100 / $viewport;
+    @return $rate * $size * 1vw;
+}

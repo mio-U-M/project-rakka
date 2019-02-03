@@ -1,8 +1,8 @@
 # このサイト全体のタイトル
-site_name: project-rakka
+site_name: 落花 -fall dawn flowers-
 
 # meta description（og:description・twitter:descriptionでも使用）
-description: project-rakka web page.
+description: This site is for a series of illustration by drawn MIO.
 
 # meta keywords
 keywords: []
@@ -12,7 +12,7 @@ keywords: []
 # url: http://example.com/
 
 # Facebook OGP・Twitter cardsで使われる画像 フルURLで指定すること
-# ogp_image_url: http://example.com/ogp.jpg
+ogp_image_url: https://mio-u-m.github.io/project-rakka/ogp.png
 
 # Facebookアプリのapp id（入れないとWarningが出る）
 # facebook_app_id: 99999999999

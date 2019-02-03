@@ -10,4 +10,8 @@ footer {
 small {
     font-family: $font-main;
     font-size: 12px;
+
+    @include spLayout {
+        font-size: 0.8rem;
+    }
 }

@@ -28,3 +28,8 @@
     appearance: none;
     overflow: visible;
 }
+
+@mixin fsVw($font_size:10){
+    font-size: $font_size * 1px;
+    font-size: getVw($font_size);
+}
