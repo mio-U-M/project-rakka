@@ -37,7 +37,7 @@ main {
 .carousel-slide {
     width: 100%;
     height: 100vh;
-	top: 0;
+    top: 0;
     position: absolute;
     margin: auto;
     pointer-events: none;
@@ -45,13 +45,13 @@ main {
 .slide-container {
     width: 80%;
     height: 60vh;
-	max-height: 100%;
-	overflow: hidden;
+    max-height: 100%;
+    overflow: hidden;
     position: relative;
     top: 18%;
     margin: auto;
-	opacity: 0;
-	outline: 3px solid transparent;
+    opacity: 0;
+    outline: 3px solid transparent;
     cursor: pointer;
 
     &:hover {
@@ -76,13 +76,13 @@ main {
 }
 .slide-cover {
     position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background: #fff;
-	transform: translate3d(-100%,0,0);
-	pointer-events: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transform: translate3d(-100%, 0, 0);
+    pointer-events: none;
 }
 .slide-ttl {
     @include absCenter;
@@ -129,7 +129,7 @@ main {
 
     // sp
     @include spLayout {
-        height: 25vh;
+        height: 25%;
 
         p {
             &:nth-of-type(1) {
@@ -189,17 +189,17 @@ main {
     .slide-container {
         opacity: 1;
         pointer-events: auto;
-        transition: opacity .3s ease-out;
+        transition: opacity 0.3s ease-out;
     }
     .slide-ttl {
         p {
             &:nth-of-type(1) {
                 opacity: 1;
-                transition: opacity .3s ease-out;
+                transition: opacity 0.3s ease-out;
             }
             &:nth-of-type(2) {
                 opacity: 1;
-                transition: opacity .3s ease-out;
+                transition: opacity 0.3s ease-out;
             }
         }
     }
