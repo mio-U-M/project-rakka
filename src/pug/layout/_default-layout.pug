@@ -60,7 +60,7 @@ html(lang="ja")
       link(rel="canonical" href=meta.url)
 
     block javascript-block
-      script(src="js/three.min.js")
+      script(src="/js/three.min.js")
       script(id="vertexShader" type="x-shader/x-vertex").
           void main() {
               gl_Position = vec4( position, 1.0 );
@@ -164,7 +164,8 @@ html(lang="ja")
       //- script(id="vertexShader" type="x-shader/x-vertex" src="/shader/scene.vert")
       //- script(id="fragmentShader" type="x-shader/x-fragment" src="/shader/scene.frag")
   body
-    .wrapper
+    .wrapper#wrapper
+      script(src="/js/windowheight.js")
       block content-block
 
     // javascript
