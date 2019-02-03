@@ -103,6 +103,10 @@
     letter-spacing: -1px;
     opacity: 0;
     transform: translateY(-100%);
+
+    @include spLayout {
+        font-size: 1.3rem;
+    }
 }
 
 .modal-ttl {
@@ -111,6 +115,10 @@
     margin-top: 5px;
     opacity: 0;
     filter: blur(30px);
+
+    @include spLayout {
+        font-size: 1.8rem;
+    }
 }
 
 .modal-txtarea {
